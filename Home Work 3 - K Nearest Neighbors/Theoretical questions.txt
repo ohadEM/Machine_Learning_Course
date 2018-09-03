@@ -1,0 +1,14 @@
+Question 1:
+In general, why do we expect feature scaling to have a positive effect on our kNN algorithm? Would we expect to have a positive effect of feature scaling in the context of decision tree algorithms?
+Answer:
+Features probably don’t have same range values like the other features (squared meters values > distance from TLV values), so by scaling the values will bring all of the features in same range of values.
+In Decision tree, we will not get any difference while we will use feature scaling.
+Because while we calculate which the best attribute to split is, we consider in our calculations the goodness of split and that make the feature values not to lean on the size but on the splitting.
+Question 2:
+In class we saw we can perform an edited kNN algorihtm which used either backward or forward kNN to filter out instances.
+Could we use this procedure for our dataset? If so explain how, if not explain why.
+Answer:
+We can’t use edited KNN algorithm on our dataset.
+In our KMM we preform regression (and not classification).
+Filtering the data need to determine if certain instance is classify correctly.
+So we can’t filter then we can’t use edited KNN.

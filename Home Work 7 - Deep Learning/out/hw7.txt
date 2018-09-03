@@ -1,0 +1,58 @@
+Part 2: Width vs Depth
+
+Weights for the each network when there are 10 features for the data:
+[100,1] = (10 + 1) * 100 + (100 + 1) = 1201
+[200,1] = (10 + 1) * 200 + (200 + 1) = 2401
+[400,1] = (10 + 1) * 400 + (400 + 1) = 4801
+[400,1] = (10 + 1) * 800 + (800 + 1) = 9601
+[100,20,1] = (10 + 1) * 100 + (100 + 1) * 20 + (20 + 1) = 3141
+
+[100, 1] = Training err: 0.0016094, validation err: 0.0019709 (step=200000)
+[200, 1] = Training err: 0.0015786, validation err: 0.0019490 (step=200000)
+[400, 1] = Training err: 0.0015498, validation err: 0.0019427 (step=200000)
+[800, 1] = Training err: 0.0014611, validation err: 0.0018911 (step=200000)
+[100, 20, 1] = Training err: 0.0003862, validation err: 0.0008690 (step=200000)
+the architecture with the best training and validation error is [100, 20, 1]
+because this network is the most branched (got 2 hidden layers), 
+and like we saw in the lecture that can solve more complex problems, 
+so that can get more accurate.
+
+
+Part 3: Training a Vanilla Neural Network on MNIST
+
+Validation Confusion matrix:
+ [[477   0   0   0   0   0   1   0   0   1]
+ [  0 561   2   0   0   1   1   1   0   1]
+ [  0   0 479   3   2   1   0   1   1   0]
+ [  0   0   1 481   0   5   0   0   1   2]
+ [  0   0   0   0 530   0   0   1   0   3]
+ [  0   0   0   1   1 423   0   2   2   1]
+ [  0   0   0   1   0   3 499   0   1   1]
+ [  1   2   3   3   0   0   0 545   0   5]
+ [  1   0   3   2   0   1   0   0 456   3]
+ [  0   0   0   2   2   0   0   0   1 478]]
+ 
+ 
+Part 4: Training a ConvNet on MNIST
+
+ConvNet have better preformance then VanillaNet, 
+because in ConvNet the pixels are changed by their neighbor pixels
+and that's is right because closer pixels are should be more relevant to each other.
+the dimensionality of the problem is reduced.
+
+Validation Confusion matrix:
+ [[476   0   0   0   0   0   2   0   1   1]
+ [  0 559   1   0   0   1   1   2   0   1]
+ [  0   1 482   2   0   1   0   2   0   0]
+ [  0   1   0 489   0   2   0   0   0   1]
+ [  0   0   0   0 531   1   0   1   0   3]
+ [  0   0   0   0   0 426   0   0   1   1]
+ [  1   0   0   0   0   1 498   0   3   0]
+ [  1   2   2   1   1   0   0 544   0   2]
+ [  1   0   3   0   0   1   0   0 457   2]
+ [  0   0   0   1   3   1   0   1   0 484]]
+the more commonly errs are in the areas of the pixels that with similar vaules.
+in ConvNet, pixels change according to thier pixel neighbors, 
+so the result is influenced by the locality of areas, if some area is dark then it will pass it to the whole area.
+like in row 3 and column 6 the errors higher then the norma of the matrix.
+the the close pixels were with wrong valuation.
